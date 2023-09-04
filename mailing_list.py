@@ -1,18 +1,19 @@
 import yagmail
-# import os
-# from dotenv import load_dotenv
-# load_dotenv()
-# token = os.environ.get("YAGMAIL_PASS")
+import os
+from dotenv import load_dotenv
+load_dotenv()
+token = os.environ.get("YAGMAIL_PASS")
+
 import time
 from datetime import datetime as dt
 # https://www.nylas.com/blog/making-use-of-environment-variables-in-python/
 # https://www.pythonanywhere.com/
 
 sender = 'lauri.kyttala@gmail.com'
-receiver = 'lauri.kyttala@etteplan.com'
+receiver = 'lauri.kyttala@gmail.com'
 
 subject = "This is the subject!"
-token = 'check token from primary gmail account, until hidden'
+# token = 'check token from primary gmail account, until hidden'
 
 
 contents = """
@@ -22,7 +23,8 @@ Hi!
 
 while True:
   now = dt.now()
-  if now.hour == 15 and now.minute == 58: # Time while you are testing
+  # print("Time now is: ",now)
+  if now.hour == 15 and now.minute == 38: # Time while you are testing
   # if now.hour == 7:
     yag = yagmail.SMTP(user=sender, password=token)
     yag.send(to=receiver, subject=subject, contents=contents)
